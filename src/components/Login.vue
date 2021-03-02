@@ -46,7 +46,7 @@ export default {
     }
   },
   methods: {
-    onSubmit () {
+    onSubmit() {
       console.log(this.loginForm)
       this.$refs.loginFormRef.validate(async isValid => {
         if (!isValid) return
@@ -63,7 +63,7 @@ export default {
         await this.$router.push('/home')
       })
     },
-    resetForm () {
+    resetForm() {
       this.$refs.loginFormRef.resetFields()
     }
   }
