@@ -58,7 +58,9 @@ export default {
         this.$message.success('登陆成功')
 
         // window.sessionStorage.setItem('token', res.data.token)
-        // this.$router.push('/home')
+        // 模拟一个tocken
+        window.sessionStorage.setItem('token', 'qwe123')
+        await this.$router.push('/home')
       })
     },
     resetForm () {
