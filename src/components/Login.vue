@@ -50,16 +50,20 @@ export default {
       console.log(this.loginForm)
       this.$refs.loginFormRef.validate(async isValid => {
         if (!isValid) return
-        // const { data: res } = await this.$http.post('login', this.loginForm)
-        // console.log(res)
-        // if (res.meta.status !== 200) {
-        //   return this.$message.error('用户名或密码有误')
-        // }
+
+        // test Mock
+        const resHello = await this.$http.get('hello')
+        console.log(resHello)
+
+        const { data: res } = await this.$http.post('login', this.loginForm)
+        console.log(res)
+        if (res.meta.status !== 200) {
+          return this.$message.error('用户名或密码有误')
+        }
+
         this.$message.success('登陆成功')
 
-        // window.sessionStorage.setItem('token', res.data.token)
-        // 模拟一个tocken
-        window.sessionStorage.setItem('token', 'qwe123')
+        window.sessionStorage.setItem('token', res.data.token)
         await this.$router.push('/home')
       })
     },
